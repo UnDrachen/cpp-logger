@@ -5,12 +5,13 @@ project(cpp-logger
     LANGUAGES CXX
 )
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
 add_library(cpp_logger STATIC
     src/logger.cpp
+)
+
+target_compile_features(cpp_logger  # Set target specific standard
+    PUBLIC
+        cxx_std_20
 )
 
 target_include_directories(cpp_logger
